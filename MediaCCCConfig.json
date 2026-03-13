@@ -1,0 +1,60 @@
+{
+  "name": "media.ccc.de",
+  "platformUrl": "https://media.ccc.de",
+  "description": "media.ccc.de is the video portal of the Chaos Computer Club. Browse and search 15,000+ recordings from CCC congresses, camps, and community events.",
+  "author": "OnlinePersona & PixelMelt",
+  "authorUrl": "https://futo.org",
+  "sourceUrl": "https://raw.githubusercontent.com/PixelMelt/grayjay-source-ccc/master/MediaCCCConfig.json",
+  "scriptUrl": "./MediaCCCScript.js",
+  "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
+  "version": 2,
+  "iconUrl": "./MediaCCCIcon.png",
+  "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
+  "scriptSignature": "",
+  "scriptPublicKey": "",
+  "maxDownloadParallelism": 1,
+  "subscriptionRateLimit": 10,
+  "changelog": {
+    "1": [
+      "Initial release for media.ccc.de"
+    ],
+    "2": [
+      "Video recommendations (shuffled talks from the same conference)",
+      "Subtitles (VTT) with auto-generated indicator and language labels",
+      "Audio-only sources (MP3, Opus) with human-readable language names, translation tagging, and bitrate display",
+      "Home feed pagination into full event archive",
+      "Search within conferences (searchChannelContents)",
+      "Conference search with description matching",
+      "Language filter setting for recordings",
+      "Rich descriptions with speakers, tags, language, and event links",
+      "High-quality poster thumbnails",
+      "Proper frontend URLs for author/channel links",
+      "Bitrate estimation from file size metadata",
+      "Correct error handling with ScriptException"
+    ]
+  },
+  "packages": [
+    "Http"
+  ],
+  "allowUrls": [
+    "media.ccc.de",
+    "static.media.ccc.de",
+    "cdn.media.ccc.de",
+    "api.media.ccc.de"
+  ],
+  "settings": [
+    {
+      "variable": "preferredLanguage",
+      "name": "Preferred Language",
+      "description": "Filter video/audio sources to show only recordings in this language. 'All Languages' shows every available recording.",
+      "type": "Dropdown",
+      "default": "0",
+      "options": [
+        "All Languages",
+        "English",
+        "Deutsch",
+        "Français"
+      ]
+    }
+  ]
+}
