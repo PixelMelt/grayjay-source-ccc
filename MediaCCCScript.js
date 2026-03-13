@@ -68,6 +68,20 @@ const LANG_TO_2 = {
 
 let _config = {};
 let _settings = {};
+var _logoCache = {};
+
+function getConferenceLogo(acronym) {
+	if (!acronym) return '';
+	if (_logoCache[acronym] !== undefined) return _logoCache[acronym];
+	var resp = http.GET(API_URL + '/conferences/' + encodeURIComponent(acronym), HEADERS);
+	if (resp.isOk) {
+		var conf = JSON.parse(resp.body);
+		_logoCache[acronym] = conf.logo_url || '';
+	} else {
+		_logoCache[acronym] = '';
+	}
+	return _logoCache[acronym];
+}
 
 // Lifecycle
 
@@ -123,6 +137,7 @@ source.getChannel = function (url) {
 	if (!resp.isOk) throw new ScriptException('Failed to fetch conference: HTTP ' + resp.code);
 
 	var conf = JSON.parse(resp.body);
+	if (conf.acronym && conf.logo_url) _logoCache[conf.acronym] = conf.logo_url;
 	var links = {};
 	if (conf.link) links['Website'] = conf.link;
 	if (conf.schedule_url) links['Schedule'] = conf.schedule_url;
@@ -186,7 +201,9 @@ source.getContentDetails = function (url) {
 			var confResp = http.GET(API_URL + '/conferences/' + encodeURIComponent(confAcronym), HEADERS);
 			if (!confResp.isOk) return new ContentPager([], false);
 
-			var siblings = (JSON.parse(confResp.body).events || []).filter(function (e) {
+			var confData = JSON.parse(confResp.body);
+			if (confData.logo_url) _logoCache[confAcronym] = confData.logo_url;
+			var siblings = (confData.events || []).filter(function (e) {
 				return e.guid !== eventGuid;
 			});
 			for (var i = siblings.length - 1; i > 0; i--) {
@@ -268,7 +285,11 @@ class CCCConferenceEventPager extends VideoPager {
 	constructor(acronym, query) {
 		var events = [];
 		var resp = http.GET(API_URL + '/conferences/' + encodeURIComponent(acronym), HEADERS);
-		if (resp.isOk) events = JSON.parse(resp.body).events || [];
+		if (resp.isOk) {
+			var conf = JSON.parse(resp.body);
+			if (conf.logo_url) _logoCache[acronym] = conf.logo_url;
+			events = conf.events || [];
+		}
 		if (query) {
 			var q = query.toLowerCase();
 			events = events.filter(function (e) {
@@ -461,13 +482,21 @@ function buildAuthorLink(event) {
 	var confTitle = event.conference_title || 'Unknown Conference';
 	var acronym = event.conference_url ? extractConferenceAcronymFromApiUrl(event.conference_url) : '';
 	var confUrl = acronym ? BASE_URL + '/c/' + acronym : BASE_URL;
-	return new PlatformAuthorLink(new PlatformID(PLATFORM, acronym || confTitle, _config.id), confTitle, confUrl, '');
+	var logo = getConferenceLogo(acronym);
+	return new PlatformAuthorLink(new PlatformID(PLATFORM, acronym || confTitle, _config.id), confTitle, confUrl, logo);
 }
 
 function buildDescription(event) {
 	var parts = [];
 	if (event.subtitle) parts.push(event.subtitle, '');
-	if (event.persons && event.persons.length) parts.push('Speakers: ' + event.persons.join(', '));
+	if (event.persons && event.persons.length) {
+		parts.push('Speakers:');
+		for (var i = 0; i < event.persons.length; i++) {
+			var name = event.persons[i];
+			var searchUrl = BASE_URL + '/search/?q=' + encodeURIComponent('speakers:"' + name + '"');
+			parts.push('  ' + name + ' - ' + searchUrl);
+		}
+	}
 	if (event.original_language) parts.push('Language: ' + formatLanguage(event.original_language));
 	if (event.tags && event.tags.length) {
 		var meaningful = event.tags.filter(function (t) {
