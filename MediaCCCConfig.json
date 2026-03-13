@@ -10,8 +10,8 @@
   "version": 2,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
-  "scriptSignature": "",
-  "scriptPublicKey": "",
+  "scriptSignature": "eIh7qDeLFoFlVWXqI5DWS7J7sNnf1ij0/xZC4S6sKW374rx6Yh8uoYfR5aOQJZ3Ma6f+6X7DpNfmLZXZ0HzQBm7SuCJW7+E2+D2pk98X16HR63rmjgIHlo1MZVFBEaWl7EeFiJkuDthbMVyBdo3+mI51rNDrTdo9U9HGDRDmZMpFN0TNpuyJ+32ENZ0Y2wUvOnC6L4hx2YR0wufazfFa6a1rE30THEt9g1sx0X55p4EgzCWSwLap6mG0iEoyJulE8G4f8YXHNdzH1rnHu4UEhD2bMaVwaXRR0vIiWTJmfrHaymvv/14Tqizx1HgPB/KMtTS0PwExx6rkdswOkdz8Jw==",
+  "scriptPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8OnaJTpaY93P/X21djOEkZs9YmZhAnfEXUXT4FTa9CdaFE9HOVCFALvPeTV30kl/WLqss8/i4mkapinNfA3gmp0/te/IBl86Qf6yc/x/2brHFlM6YCRHOUA9C5m9N57s59WUYUvDnXat0iRO5g2tn3n83F+mBD/Q4ObNk1M1p3QEO7Wle0xL/UzWYW/ZmeRTn6o/5sLdD8Hj193/uCJ9/W27ex0LF7qTcDzjDBDHGJuo/eL9hkS2lWGBIqC9aL6gzSdirA+zN5+q+oRDdsRoljOXRisT2qB2+NRLuyjcNzCdoKZRxPOC/LpqifIPFbhPnqCFRWHyxVHo4SKPK29VJwIDAQAB",
   "maxDownloadParallelism": 1,
   "subscriptionRateLimit": 10,
   "changelog": {
