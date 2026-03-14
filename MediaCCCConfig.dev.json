@@ -7,7 +7,7 @@
   "sourceUrl": "http://localhost:8000/MediaCCCConfig.dev.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 2.1,
+  "version": 3,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
   "scriptSignature": "",
@@ -44,7 +44,8 @@
     "media.ccc.de",
     "static.media.ccc.de",
     "cdn.media.ccc.de",
-    "api.media.ccc.de"
+    "api.media.ccc.de",
+    "raw.githubusercontent.com"
   ],
   "settings": [
     {

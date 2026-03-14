@@ -7,7 +7,7 @@
   "sourceUrl": "https://raw.githubusercontent.com/PixelMelt/grayjay-source-ccc/master/MediaCCCConfig.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 2.1,
+  "version": 3,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
   "scriptSignature": "i1Oaqip7kplydpzIoLUmFDSKwkMUhsOg/E3wNqOCkZ63mFZf4U9pCInJhkumOtfd5hSYv6fkJ/X1gRUfkVRQkvHYaSFt5Zt48KQPnsswrz5E9OFe0Ht5zaL4828XpoaZi85mzsz4yIPVPSQQhlcqacTFNK+7/5F+/CokQT9b2UjVoOIlv3iNWLK2h3dzloYfPdAodinEj1aW+sBz5H+rpVNHzKd88KK7rm31hDftCTaLHlQl8kkB///15JNv8LmCJQk+uK6m8akPixKT6iTMCuRYtvy6MA1Gdynw2uCHDDgewwEXsLPh5DEmWSw+w+UdzigzqmOdNqE0cx7FvnGR8g==",
@@ -44,7 +44,8 @@
     "media.ccc.de",
     "static.media.ccc.de",
     "cdn.media.ccc.de",
-    "api.media.ccc.de"
+    "api.media.ccc.de",
+    "raw.githubusercontent.com"
   ],
   "settings": [
     {
