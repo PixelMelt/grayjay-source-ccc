@@ -69,9 +69,24 @@ const LANG_TO_2 = {
 let _config = {};
 let _settings = {};
 var _logoCache = {};
+var _logoCacheLoaded = false;
+
+function ensureLogoCacheLoaded() {
+	if (_logoCacheLoaded) return;
+	var resp = http.GET(API_URL + '/conferences', HEADERS);
+	if (resp.isOk) {
+		var conferences = JSON.parse(resp.body).conferences || [];
+		for (var i = 0; i < conferences.length; i++) {
+			var c = conferences[i];
+			if (c.acronym) _logoCache[c.acronym] = c.logo_url || '';
+		}
+		_logoCacheLoaded = true;
+	}
+}
 
 function getConferenceLogo(acronym) {
 	if (!acronym) return '';
+	ensureLogoCacheLoaded();
 	if (_logoCache[acronym] !== undefined) return _logoCache[acronym];
 	var resp = http.GET(API_URL + '/conferences/' + encodeURIComponent(acronym), HEADERS);
 	if (resp.isOk) {
@@ -493,7 +508,7 @@ function buildDescription(event) {
 		parts.push('Speakers:');
 		for (var i = 0; i < event.persons.length; i++) {
 			var name = event.persons[i];
-			var searchUrl = BASE_URL + '/search/?q=' + encodeURIComponent('speakers:"' + name + '"');
+			var searchUrl = BASE_URL + '/search?p=' + encodeURIComponent(name);
 			parts.push('  ' + name + ' - ' + searchUrl);
 		}
 	}

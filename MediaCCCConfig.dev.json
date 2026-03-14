@@ -7,7 +7,7 @@
   "sourceUrl": "http://localhost:8000/MediaCCCConfig.dev.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 2,
+  "version": 2.1,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
   "scriptSignature": "",
@@ -31,6 +31,10 @@
       "Proper frontend URLs for author/channel links",
       "Bitrate estimation from file size metadata",
       "Correct error handling with ScriptException"
+    ],
+    "3": [
+      "Bulk-prefetch conference logos to reduce home page load from ~47 HTTP requests to 2",
+      "Fix speaker search URLs to use correct /search?p= endpoint"
     ]
   },
   "packages": [

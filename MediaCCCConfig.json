@@ -7,10 +7,10 @@
   "sourceUrl": "https://raw.githubusercontent.com/PixelMelt/grayjay-source-ccc/master/MediaCCCConfig.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 2,
+  "version": 2.1,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
-  "scriptSignature": "LcpwYqkm/BaBWKLpeiNtiZ0zIUwDuA57bsqVnw8WaBcoci2+sDpATeIvsE5f9WaEZZDHT1ZuX7EApwyghQVfW1OAn7TcUhZaKrMXCoVELgtvhz8sgXAxyJ4dKXF1HfGyIJWYv4dgOyHvX0OEZJxSqrsYfYVkPkUsj/VHoD74vHb50h70Wt3KPifFN3xcdAMtUe0nP2tSwGjLcRBVgjRSed9saiWf0nJtDblYd/3JF6FW8oRZsP3QVxhBcEkBOdICHxbyfxfBDgeVQsIovE4nYKlNXRJZMVR7l7pz+b5BsYaBtEh9eBOf+gGgkSnSJzXDzUudD+zT9zRZapfp9JOZWg==",
+  "scriptSignature": "i1Oaqip7kplydpzIoLUmFDSKwkMUhsOg/E3wNqOCkZ63mFZf4U9pCInJhkumOtfd5hSYv6fkJ/X1gRUfkVRQkvHYaSFt5Zt48KQPnsswrz5E9OFe0Ht5zaL4828XpoaZi85mzsz4yIPVPSQQhlcqacTFNK+7/5F+/CokQT9b2UjVoOIlv3iNWLK2h3dzloYfPdAodinEj1aW+sBz5H+rpVNHzKd88KK7rm31hDftCTaLHlQl8kkB///15JNv8LmCJQk+uK6m8akPixKT6iTMCuRYtvy6MA1Gdynw2uCHDDgewwEXsLPh5DEmWSw+w+UdzigzqmOdNqE0cx7FvnGR8g==",
   "scriptPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8OnaJTpaY93P/X21djOEkZs9YmZhAnfEXUXT4FTa9CdaFE9HOVCFALvPeTV30kl/WLqss8/i4mkapinNfA3gmp0/te/IBl86Qf6yc/x/2brHFlM6YCRHOUA9C5m9N57s59WUYUvDnXat0iRO5g2tn3n83F+mBD/Q4ObNk1M1p3QEO7Wle0xL/UzWYW/ZmeRTn6o/5sLdD8Hj193/uCJ9/W27ex0LF7qTcDzjDBDHGJuo/eL9hkS2lWGBIqC9aL6gzSdirA+zN5+q+oRDdsRoljOXRisT2qB2+NRLuyjcNzCdoKZRxPOC/LpqifIPFbhPnqCFRWHyxVHo4SKPK29VJwIDAQAB",
   "maxDownloadParallelism": 1,
   "subscriptionRateLimit": 10,
@@ -31,6 +31,10 @@
       "Proper frontend URLs for author/channel links",
       "Bitrate estimation from file size metadata",
       "Correct error handling with ScriptException"
+    ],
+    "3": [
+      "Bulk-prefetch conference logos to reduce home page load from ~47 HTTP requests to 2",
+      "Fix speaker search URLs to use correct /search?p= endpoint"
     ]
   },
   "packages": [
