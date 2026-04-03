@@ -162,7 +162,7 @@ source.getChannel = function (url) {
 		name: conf.title || conf.acronym,
 		thumbnail: conf.logo_url || '',
 		banner: conf.logo_url || '',
-		subscribers: (conf.events && conf.events.length) || 0,
+		subscribers: 0,
 		description: conf.description || '',
 		url: BASE_URL + '/c/' + conf.acronym,
 		links: links,
@@ -204,7 +204,7 @@ source.getContentDetails = function (url) {
 		isLive: false,
 		description: buildDescription(event),
 		video: buildVideoSources(event),
-		rating: new RatingLikes(event.view_count || 0),
+		rating: new RatingLikes(0),
 		subtitles: buildSubtitles(event),
 	});
 
@@ -248,7 +248,14 @@ class CCCHomePager extends VideoPager {
 		var events = [];
 		var resp = http.GET(API_URL + '/events?page=' + page + '&per_page=' + PAGE_SIZE, HEADERS);
 		if (resp.isOk) events = JSON.parse(resp.body).events || [];
-		super(events.map(mapEventToVideo), events.length >= PAGE_SIZE);
+		var hasMore = events.length >= PAGE_SIZE;
+		var filterLang = LANG_OPTIONS[parseInt(_settings.preferredLanguage || '0', 10)] || '';
+		if (filterLang) {
+			events = events.filter(function (e) {
+				return e.original_language && e.original_language.indexOf(filterLang) !== -1;
+			});
+		}
+		super(events.map(mapEventToVideo), hasMore);
 		this._page = page;
 	}
 	nextPage() {
@@ -365,14 +372,12 @@ function mapConferenceToChannel(conf) {
 function buildVideoSources(event) {
 	if (!event.recordings || !event.recordings.length) return new VideoSourceDescriptor([]);
 
-	var filterLang = LANG_OPTIONS[parseInt(_settings.preferredLanguage || '0', 10)] || '';
 	var sources = [];
 
 	for (var i = 0; i < event.recordings.length; i++) {
 		var rec = event.recordings[i];
 		var mime = rec.mime_type || '';
 		if (!mime.startsWith('video/')) continue;
-		if (filterLang && rec.language && rec.language.indexOf(filterLang) === -1) continue;
 
 		sources.push(
 			new VideoUrlSource({

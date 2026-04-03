@@ -7,7 +7,7 @@
   "sourceUrl": "http://localhost:8000/MediaCCCConfig.dev.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 3,
+  "version": 4,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
   "scriptSignature": "",
@@ -35,6 +35,10 @@
     "3": [
       "Bulk-prefetch conference logos to reduce home page load from ~47 HTTP requests to 2",
       "Fix speaker search URLs to use correct /search?p= endpoint"
+    ],
+    "4": [
+      "Remove like and sub count which didnt really make sense to have set (they dont exist on the api)",
+      "Make lang filter only apply to the home page and not the actual videos"
     ]
   },
   "packages": [
@@ -44,8 +48,7 @@
     "media.ccc.de",
     "static.media.ccc.de",
     "cdn.media.ccc.de",
-    "api.media.ccc.de",
-    "raw.githubusercontent.com"
+    "api.media.ccc.de"
   ],
   "settings": [
     {

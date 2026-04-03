@@ -7,10 +7,10 @@
   "sourceUrl": "https://raw.githubusercontent.com/PixelMelt/grayjay-source-ccc/master/MediaCCCConfig.json",
   "scriptUrl": "./MediaCCCScript.js",
   "repositoryUrl": "https://github.com/PixelMelt/grayjay-source-ccc",
-  "version": 3,
+  "version": 4,
   "iconUrl": "./MediaCCCIcon.png",
   "id": "c6a1e360-1d8a-4b9d-8c1a-2e3b4c5d6e7f",
-  "scriptSignature": "i1Oaqip7kplydpzIoLUmFDSKwkMUhsOg/E3wNqOCkZ63mFZf4U9pCInJhkumOtfd5hSYv6fkJ/X1gRUfkVRQkvHYaSFt5Zt48KQPnsswrz5E9OFe0Ht5zaL4828XpoaZi85mzsz4yIPVPSQQhlcqacTFNK+7/5F+/CokQT9b2UjVoOIlv3iNWLK2h3dzloYfPdAodinEj1aW+sBz5H+rpVNHzKd88KK7rm31hDftCTaLHlQl8kkB///15JNv8LmCJQk+uK6m8akPixKT6iTMCuRYtvy6MA1Gdynw2uCHDDgewwEXsLPh5DEmWSw+w+UdzigzqmOdNqE0cx7FvnGR8g==",
+  "scriptSignature": "u4MfSxeyNf9mp8I6FCE0D58PNZ9uzpP9B/mJJ/V8rzmU3hWW2kf7CEtieFUsrBcexu0Hp9tyQoPXITeIyP+IIXUDE7ZCByw4QelwYcxGPpfcVLUOtgLsBsaXPsILDH++bWPALWvLg27sUrbM78kWgCXwe6DgpyTz9EBi5JPhoxkku2qnnrz2awi5a327g0WAH2fuu4MNBPapNSdcaJchx+aY/eLVgUmj+v/DRs0WUzPzhPQNEVNAEDD9fQF3C6sD6YYhbs7lXrU++7MlteVDy/d7w8+kSgF7M+BoPTaxrw42MVzMX05H1vcti9eRBJCA38W5mpbNErcW0uMwy0r2rA==",
   "scriptPublicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8OnaJTpaY93P/X21djOEkZs9YmZhAnfEXUXT4FTa9CdaFE9HOVCFALvPeTV30kl/WLqss8/i4mkapinNfA3gmp0/te/IBl86Qf6yc/x/2brHFlM6YCRHOUA9C5m9N57s59WUYUvDnXat0iRO5g2tn3n83F+mBD/Q4ObNk1M1p3QEO7Wle0xL/UzWYW/ZmeRTn6o/5sLdD8Hj193/uCJ9/W27ex0LF7qTcDzjDBDHGJuo/eL9hkS2lWGBIqC9aL6gzSdirA+zN5+q+oRDdsRoljOXRisT2qB2+NRLuyjcNzCdoKZRxPOC/LpqifIPFbhPnqCFRWHyxVHo4SKPK29VJwIDAQAB",
   "maxDownloadParallelism": 1,
   "subscriptionRateLimit": 10,
@@ -35,6 +35,10 @@
     "3": [
       "Bulk-prefetch conference logos to reduce home page load from ~47 HTTP requests to 2",
       "Fix speaker search URLs to use correct /search?p= endpoint"
+    ],
+    "4": [
+      "Remove like and sub count which didnt really make sense to have set (they dont exist on the api)",
+      "Make lang filter only apply to the home page and not the actual videos"
     ]
   },
   "packages": [
@@ -44,8 +48,7 @@
     "media.ccc.de",
     "static.media.ccc.de",
     "cdn.media.ccc.de",
-    "api.media.ccc.de",
-    "raw.githubusercontent.com"
+    "api.media.ccc.de"
   ],
   "settings": [
     {
